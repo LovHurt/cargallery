@@ -1,0 +1,9 @@
+package com.lovehurts.exception;
+
+public class BaseException extends RuntimeException {
+
+	public BaseException(ErrorMessage errorMessage) {
+		super(errorMessage.prepareErrorMesssage());
+		
+	}
+}
