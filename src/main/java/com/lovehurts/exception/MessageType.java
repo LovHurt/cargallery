@@ -5,6 +5,7 @@ import lombok.Getter;
 @Getter
 public enum MessageType {
 	NO_RECORD_EXIST("1004", "record can not be found"),
+	TOKEN_IS_EXPIRED("1005", "token duration is over"),
 	GENERAL_EXCEPTION("9999", "general exception occured");
 	
 	private String code;
@@ -12,8 +13,8 @@ public enum MessageType {
 	private String message;
 	
 	MessageType(String code, String message) {
-		this.setCode(code);
-		this.setMessage(message);
+		this.code = code;
+		this.message = message;
 	}
 
 	public String getCode() {
