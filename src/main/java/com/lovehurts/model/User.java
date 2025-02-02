@@ -33,15 +33,4 @@ public class User extends BaseEntity implements UserDetails {
 		return List.of();
 	}
 
-	@Override
-	public String getPassword() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public String getUsername() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 }
