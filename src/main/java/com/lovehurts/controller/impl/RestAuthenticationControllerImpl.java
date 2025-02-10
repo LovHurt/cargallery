@@ -9,6 +9,7 @@ import com.lovehurts.controller.IRestAuthenticationController;
 import com.lovehurts.controller.RestBaseController;
 import com.lovehurts.controller.RootEntity;
 import com.lovehurts.dto.AuthRequest;
+import com.lovehurts.dto.AuthResponse;
 import com.lovehurts.dto.DtoUser;
 import com.lovehurts.service.IAuthenticationService;
 
@@ -24,6 +25,13 @@ public class RestAuthenticationControllerImpl extends RestBaseController impleme
 	@Override
 	public RootEntity<DtoUser> register(@Valid @RequestBody AuthRequest input) {
 		return ok(authenticationService.register(input));
+	}
+
+	@PostMapping("/autheticate")
+	@Override
+	public RootEntity<AuthResponse> authenticate(@Valid @RequestBody AuthRequest input) {
+		
+		return ok(authenticationService.authenticate(input));
 	}
 
 	
