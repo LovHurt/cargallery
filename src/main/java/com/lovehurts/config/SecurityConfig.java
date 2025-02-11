@@ -10,6 +10,7 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+import com.lovehurts.handler.AuthEntryPoint;
 import com.lovehurts.jwt.JWTAuthenticationFilter;
 
 @Configuration
@@ -25,6 +26,9 @@ public class SecurityConfig {
 
 	@Autowired
 	private JWTAuthenticationFilter jwtAuthenticationFilter;
+	
+	@Autowired
+	private AuthEntryPoint authEntryPoint;
 
 	@Bean
 	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
@@ -33,6 +37,7 @@ public class SecurityConfig {
 						request -> request.requestMatchers(REGISTER, AUTHENTICATE, REFRESH_TOKEN).permitAll()
 
 								.anyRequest().authenticated())
+				.exceptionHandling().authenticationEntryPoint(authEntryPoint).and()
 				.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
 				.authenticationProvider(authenticationProvider)
 				.addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);

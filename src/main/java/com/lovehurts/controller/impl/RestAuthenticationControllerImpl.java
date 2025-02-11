@@ -11,16 +11,17 @@ import com.lovehurts.controller.RootEntity;
 import com.lovehurts.dto.AuthRequest;
 import com.lovehurts.dto.AuthResponse;
 import com.lovehurts.dto.DtoUser;
+import com.lovehurts.dto.RefreshTokenRequest;
 import com.lovehurts.service.IAuthenticationService;
 
 import jakarta.validation.Valid;
 
 @RestController
-public class RestAuthenticationControllerImpl extends RestBaseController implements IRestAuthenticationController{
+public class RestAuthenticationControllerImpl extends RestBaseController implements IRestAuthenticationController {
 
 	@Autowired
 	private IAuthenticationService authenticationService;
-	
+
 	@PostMapping("/register")
 	@Override
 	public RootEntity<DtoUser> register(@Valid @RequestBody AuthRequest input) {
@@ -30,9 +31,15 @@ public class RestAuthenticationControllerImpl extends RestBaseController impleme
 	@PostMapping("/autheticate")
 	@Override
 	public RootEntity<AuthResponse> authenticate(@Valid @RequestBody AuthRequest input) {
-		
+
 		return ok(authenticationService.authenticate(input));
 	}
 
-	
+	@PostMapping("/refreshToken")
+	@Override
+	public RootEntity<AuthResponse> refreshToken(@Valid @RequestBody RefreshTokenRequest input) {
+
+		return ok(authenticationService.refreshToken(input));
+	}
+
 }
