@@ -11,6 +11,8 @@ public enum MessageType {
 	REFRESH_TOKEN_NOT_FOUND("1008", "refresh token can not be found"),
 	REFRESH_TOKEN_IS_EXPIRED("1009", "refresh token is expired"),
 	CURRENCY_RATES_IS_OCCURED("1010", "currency rates could not fetched"),
+	CUSTOMER_AMOUNT_IS_NOT_ENOUGH("1011", "customer amount is not enough"),
+	CAR_STATUS_IS_SALED("1012", "car is already saled"),
 	GENERAL_EXCEPTION("9999", "general exception occured");
 
 	private String code;

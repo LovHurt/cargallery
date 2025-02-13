@@ -31,7 +31,10 @@ public class Car extends BaseEntity {
 	
 	@Column(name = "model")
 	private String model;
-	
+
+	@Column(name = "price")
+	private BigDecimal price;
+
 	@Column(name = "production_year")
 	private Integer productionYear;
 	
