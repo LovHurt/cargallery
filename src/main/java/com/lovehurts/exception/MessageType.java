@@ -10,6 +10,7 @@ public enum MessageType {
 	USERNAME_OR_PASSWORD_INVALID("1007", "username or password is invalid"),
 	REFRESH_TOKEN_NOT_FOUND("1008", "refresh token can not be found"),
 	REFRESH_TOKEN_IS_EXPIRED("1009", "refresh token is expired"),
+	CURRENCY_RATES_IS_OCCURED("1010", "currency rates could not fetched"),
 	GENERAL_EXCEPTION("9999", "general exception occured");
 
 	private String code;
